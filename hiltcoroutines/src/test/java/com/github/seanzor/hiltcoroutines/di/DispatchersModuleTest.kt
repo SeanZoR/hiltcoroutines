@@ -17,7 +17,7 @@ import org.robolectric.annotation.Config
 import javax.inject.Inject
 
 @HiltAndroidTest
-@Config(application = HiltTestApplication::class)
+@Config(manifest=Config.NONE, application = HiltTestApplication::class)
 @RunWith(RobolectricTestRunner::class)
 class DispatchersModuleTest {
 
