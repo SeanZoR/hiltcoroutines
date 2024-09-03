@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.seanzor:hiltcoroutines:VERSION_PLACEHOLDER")
+    implementation("com.github.seanzor:hiltcoroutines:0.0.1")
 }
 ```
 

@@ -20,21 +20,13 @@ jobs:
           distribution: 'adopt'
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew buildRelease
 
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            app/build/outputs/aar/*.aar
+            hiltcoroutines/build/outputs/aar/*-release.aar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Update README Version
-        run: |
-          sed -i "s/VERSION_PLACEHOLDER/${{ github.ref_name }}/g" README.md
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "Update README version to ${{ github.ref_name }}"
-          git push
