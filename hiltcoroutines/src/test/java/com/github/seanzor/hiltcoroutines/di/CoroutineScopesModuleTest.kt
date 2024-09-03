@@ -20,7 +20,7 @@ import kotlin.coroutines.ContinuationInterceptor
 
 @ExperimentalCoroutinesApi
 @HiltAndroidTest
-@Config(application = HiltTestApplication::class)
+@Config(manifest=Config.NONE, application = HiltTestApplication::class)
 @RunWith(RobolectricTestRunner::class)
 class CoroutineScopesModuleTest {
 
