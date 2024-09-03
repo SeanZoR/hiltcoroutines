@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
+    `maven-publish`
 }
 
 android {
@@ -25,6 +26,27 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                // values used for local maven repo, jitpack uses github release:
+                groupId = "com.github.seanzor"
+                artifactId = "hiltcoroutines"
+                version = "0.0.4"
+            }
+        }
     }
 }
 

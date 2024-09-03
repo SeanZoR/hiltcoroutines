@@ -27,6 +27,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            hiltcoroutines/build/outputs/aar/*-release.aar
+            hiltcoroutines/build/outputs/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
