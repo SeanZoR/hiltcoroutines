@@ -41,10 +41,34 @@ project.afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
 
-                // values used for local maven repo, jitpack uses github release:
                 groupId = "com.github.seanzor"
                 artifactId = "hiltcoroutines"
                 version = "0.0.4"
+
+                pom {
+                    name.set("HiltCoroutines")
+                    description.set("A library for integrating Hilt with Coroutines.")
+                    url.set("https://github.com/seanzor/hiltcoroutines")
+
+                    licenses {
+                        license {
+                            name.set("The Apache License, Version 2.0")
+                            url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                        }
+                    }
+                    developers {
+                        developer {
+                            id.set("seanzor")
+                            name.set("Sean")
+                            email.set("connect@sean8.com")
+                        }
+                    }
+                    scm {
+                        connection.set("scm:git:github.com/seanzor/hiltcoroutines.git")
+                        developerConnection.set("scm:git:ssh://github.com/seanzor/hiltcoroutines.git")
+                        url.set("https://github.com/seanzor/hiltcoroutines")
+                    }
+                }
             }
         }
     }
