@@ -2,15 +2,15 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
-    `maven-publish`
+    alias(libs.plugins.custom.maven.publish)
 }
 
 android {
-    namespace = "com.github.seanzor.hiltcoroutines"
+    namespace = "com.sean8.hiltcoroutines"
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 24
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -27,25 +27,34 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
-    }
 }
 
-project.afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
+mavenPublishing {
+    coordinates("com.sean8", "hiltcoroutines", "0.0.7")
 
-                // values used for local maven repo, jitpack uses github release:
-                groupId = "com.github.seanzor"
-                artifactId = "hiltcoroutines"
-                version = "0.0.4"
+    pom {
+        name.set("HiltCoroutines")
+        description.set("A library for integrating Hilt with Coroutines.")
+        inceptionYear.set("2023")
+        url.set("https://github.com/seanzor/hiltcoroutines/")
+        licenses {
+            license {
+                name.set("The Apache License, Version 2.0")
+                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                distribution.set("repo")
             }
+        }
+        developers {
+            developer {
+                id.set("Sean8")
+                name.set("Sean Katz")
+                url.set("https://sean8.com")
+            }
+        }
+        scm {
+            url.set("https://github.com/seanzor/hiltcoroutines/")
+            connection.set("scm:git:git://github.com/seanzor/hiltcoroutines.git")
+            developerConnection.set("scm:git:ssh://git@github.com/seanzor/hiltcoroutines.git")
         }
     }
 }
