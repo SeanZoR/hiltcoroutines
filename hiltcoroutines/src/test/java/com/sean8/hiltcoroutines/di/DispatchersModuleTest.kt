@@ -1,7 +1,7 @@
-package com.github.seanzor.hiltcoroutines.di
+package com.sean8.hiltcoroutines.di
 
-import com.github.seanzor.hiltcoroutines.AppDispatchers
-import com.github.seanzor.hiltcoroutines.Dispatcher
+import com.sean8.hiltcoroutines.AppDispatchers
+import com.sean8.hiltcoroutines.Dispatcher
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.HiltTestApplication

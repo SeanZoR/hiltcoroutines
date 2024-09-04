@@ -8,6 +8,7 @@ appcompat = "1.7.0"
 kotlinxCoroutinesCore = "1.6.0"
 ksp = "2.0.0-1.0.21"
 robolectric = "4.12.2"
+custom-maven-publish = "0.29.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -24,3 +25,4 @@ robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+custom-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "custom-maven-publish" }

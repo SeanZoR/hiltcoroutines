@@ -14,13 +14,8 @@
 Add the following dependency to your `build.gradle` file:
 
 ```kotlin
-repositories {
-    mavenCentral()
-    maven { url = uri("https://jitpack.io") }
-}
-
 dependencies {
-    implementation("com.github.seanzor:hiltcoroutines:x.x.x")
+    implementation("com.sean8:hiltcoroutines:0.0.7")
 }
 ```
 
