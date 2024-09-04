@@ -35,44 +35,68 @@ android {
     }
 }
 
-project.afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            // Add the AAR file manually
+            artifact(layout.buildDirectory.file("outputs/aar/${project.name}-release.aar"))
 
-                groupId = "com.github.seanzor"
-                artifactId = "hiltcoroutines"
-                version = "0.0.4"
+            groupId = "com.github.seanzor"
+            artifactId = "hiltcoroutines"
+            version = "0.0.4"
 
-                pom {
-                    name.set("HiltCoroutines")
-                    description.set("A library for integrating Hilt with Coroutines.")
+//            artifact(tasks["sourcesJar"])
+//            artifact(tasks["javadocJar"])
+
+            pom {
+                name.set("HiltCoroutines")
+                description.set("A library for integrating Hilt with Coroutines.")
+                url.set("https://github.com/seanzor/hiltcoroutines")
+
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("seanzor")
+                        name.set("Sean")
+                        email.set("connect@sean8.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:github.com/seanzor/hiltcoroutines.git")
+                    developerConnection.set("scm:git:ssh://github.com/seanzor/hiltcoroutines.git")
                     url.set("https://github.com/seanzor/hiltcoroutines")
-
-                    licenses {
-                        license {
-                            name.set("The Apache License, Version 2.0")
-                            url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                        }
-                    }
-                    developers {
-                        developer {
-                            id.set("seanzor")
-                            name.set("Sean")
-                            email.set("connect@sean8.com")
-                        }
-                    }
-                    scm {
-                        connection.set("scm:git:github.com/seanzor/hiltcoroutines.git")
-                        developerConnection.set("scm:git:ssh://github.com/seanzor/hiltcoroutines.git")
-                        url.set("https://github.com/seanzor/hiltcoroutines")
-                    }
                 }
             }
         }
     }
 }
+
+tasks {
+    val sourcesJar by creating(Jar::class) {
+        archiveClassifier.set("sources")
+        from(android.sourceSets["main"].java.srcDirs)
+    }
+
+    val javadoc by creating(Javadoc::class) {
+        source = fileTree(android.sourceSets["main"].java.srcDirs)
+    }
+
+    val javadocJar by creating(Jar::class) {
+        archiveClassifier.set("javadoc")
+        from(javadoc.destinationDir)
+    }
+
+    artifacts {
+        archives(sourcesJar)
+        archives(javadocJar)
+    }
+}
+
 
 dependencies {
     implementation(libs.androidx.core.ktx)
