@@ -41,7 +41,7 @@ jobs:
 
   publish:
     environment:
-      name: "MavenCentral"
+      name: "maven_publish"
 
     needs: build
 
