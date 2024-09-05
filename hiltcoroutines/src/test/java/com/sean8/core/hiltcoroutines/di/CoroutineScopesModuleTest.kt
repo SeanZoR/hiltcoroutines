@@ -1,7 +1,11 @@
-package com.sean8.hiltcoroutines.di
+package com.sean8.core.hiltcoroutines.di
 
-import com.sean8.hiltcoroutines.AppDispatchers
-import com.sean8.hiltcoroutines.Dispatcher
+import com.sean8.core.hiltcoroutines.AppDispatchers
+import com.sean8.core.hiltcoroutines.Dispatcher
+import com.sean8.core.hiltcoroutines.di.ApplicationScope
+import com.sean8.core.hiltcoroutines.di.IOScope
+import com.sean8.core.hiltcoroutines.di.MainScope
+import com.sean8.core.hiltcoroutines.di.StrictScope
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.HiltTestApplication

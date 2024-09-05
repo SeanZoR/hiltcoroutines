@@ -1,7 +1,7 @@
-package com.sean8.hiltcoroutines.di
+package com.sean8.core.hiltcoroutines.di
 
-import com.sean8.hiltcoroutines.AppDispatchers
-import com.sean8.hiltcoroutines.Dispatcher
+import com.sean8.core.hiltcoroutines.AppDispatchers
+import com.sean8.core.hiltcoroutines.Dispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

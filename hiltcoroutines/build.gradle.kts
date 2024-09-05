@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sean8.hiltcoroutines"
+    namespace = "com.sean8.core.hiltcoroutines"
     compileSdk = 34
 
     defaultConfig {
@@ -30,7 +30,7 @@ android {
 }
 
 mavenPublishing {
-    coordinates("com.sean8", "hiltcoroutines", "0.0.7")
+    coordinates("com.sean8.core", "hilt-coroutines", "1.0.0")
 
     pom {
         name.set("HiltCoroutines")

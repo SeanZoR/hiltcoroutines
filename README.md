@@ -15,7 +15,7 @@ Add the following dependency to your `build.gradle` file:
 
 ```kotlin
 dependencies {
-    implementation("com.sean8:hiltcoroutines:0.0.7")
+    implementation("com.sean8.core:hilt-coroutines:1.0.0")
 }
 ```
 

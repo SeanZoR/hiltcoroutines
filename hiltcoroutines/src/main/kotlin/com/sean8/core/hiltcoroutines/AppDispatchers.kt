@@ -1,4 +1,4 @@
-package com.sean8.hiltcoroutines
+package com.sean8.core.hiltcoroutines
 
 import javax.inject.Qualifier
 import kotlin.annotation.AnnotationRetention.RUNTIME
