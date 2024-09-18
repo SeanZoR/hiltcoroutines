@@ -1,5 +1,7 @@
 # HiltCoroutines
 
+![Maven Central Version](https://img.shields.io/maven-central/v/com.sean8.core/hilt-coroutines)
+
 **HiltCoroutines** is a lightweight Android library designed to simplify the use of coroutine dispatchers and scopes in conjunction with Hilt dependency injection. It aims to reduce boilerplate code and provide a seamless way to inject coroutine dispatchers and scopes, streamlining asynchronous programming in your Android applications.
 
 ## Features
